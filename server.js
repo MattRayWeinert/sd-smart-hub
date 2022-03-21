@@ -1,23 +1,21 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const cors = require('cors');
+const cors = require("cors");
 Stream = require("node-rtsp-stream");
 
 app.use(cors());
 app.use(express.json());
 
-app.listen(8080, () => console.log('Server is running'));
+app.listen(8080, () => console.log("Server is running"));
 
 app.post("/create", (req, res) => {
-
-  console.log(req.body.title)
-
   stream = new Stream({
     name: "admin",
     // streamUrl: "rtsp://YOUR_IP:PORT",
     streamUrl: req.body.rtsp_url,
     wsPort: 6789,
-    ffmpegOptions: { // options ffmpeg flags
+    ffmpegOptions: {
+      // options ffmpeg flags
       "-f": "mpegts", // output file format.
       "-codec:v": "mpeg1video", // video codec
       "-b:v": "1000k", // video bit rate
@@ -32,6 +30,4 @@ app.post("/create", (req, res) => {
       "-b:a": "128k", // audio bit rate
     },
   });
-})
-
-
+});

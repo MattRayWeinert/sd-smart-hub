@@ -5,6 +5,8 @@
   "private": true,
   "dependencies": {
     "@cycjimmy/jsmpeg-player": "^5.1.1",
+    "@tensorflow-models/coco-ssd": "^2.2.2",
+    "@tensorflow/tfjs-node": "^3.14.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
